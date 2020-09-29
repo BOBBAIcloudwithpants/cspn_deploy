@@ -69,7 +69,7 @@ cspn_config = {'step': args.cspn_step, 'norm_type': args.cspn_norm_type}
 
 # Data
 print('==> Preparing data..')
-assert args.data_set in ['nyudepth', 'kitti']
+assert args.data_set in ['nyudepth', 'kitti', 'custom']
 if args.data_set=='nyudepth':
     import eval_nyu_dataset_loader as dataset_loader
     valset = dataset_loader.NyuDepthDataset(csv_file=args.eval_list,
@@ -110,6 +110,8 @@ if args.data_set == 'nyudepth':
     net = model.resnet50(cspn_config=cspn_config)
 elif args.data_set == 'kitti':
     net = model.resnet18(cspn_config=cspn_config)
+elif args.data_set == 'nyudepth':
+    net = model.resnet50(cspn_config=cspn_config)
 else:
     print("==> input unknow dataset..")
 
