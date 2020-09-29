@@ -84,6 +84,16 @@ elif args.data_set =='kitti':
                                          split = 'val',
                                          n_sample = args.n_sample,
                                          input_format='hdf5')
+
+elif args.data_set == 'custom':
+    import eval_nyu_dataset_loader as dataset_loader
+    valset = dataset_loader.NyuDepthDataset(csv_file=args.eval_list,
+                                            root_dir='.',
+                                            split = 'val',
+                                            n_sample = args.n_sample,
+                                            input_format='img'
+                                            )
+
 else:
     print("==> input unknow dataset..")
 
