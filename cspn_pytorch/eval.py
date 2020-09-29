@@ -52,7 +52,7 @@ args = parser.parse_args()
 sys.path.append("./models")
 import update_model
 if args.model == 'cspn_unet':
-    if args.data_set=='nyudepth':
+    if args.data_set=='nyudepth' or args.data_set=='custom':
         print("==> evaluating model with cspn and unet on nyudepth")
         import torch_resnet_cspn_nyu as model
     elif args.data_set =='kitti':
@@ -110,7 +110,7 @@ if args.data_set == 'nyudepth':
     net = model.resnet50(cspn_config=cspn_config)
 elif args.data_set == 'kitti':
     net = model.resnet18(cspn_config=cspn_config)
-elif args.data_set == 'nyudepth':
+elif args.data_set == 'custom':
     net = model.resnet50(cspn_config=cspn_config)
 else:
     print("==> input unknow dataset..")
