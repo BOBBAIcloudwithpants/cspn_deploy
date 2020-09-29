@@ -1,7 +1,7 @@
 #!/bin/bash
 export CUDA_VISIBLE_DEVICES=1
 
-data_set="nyudepth"
+data_set="custom"
 n_sample=500
 eval_list="datalist/custom_val.csv"
 model="cspn_unet"
